@@ -1,3 +1,4 @@
+import 'package:backend_project/BNB/Home_page.dart';
 import 'package:backend_project/Class/21June/form1.dart';
 import 'package:backend_project/Class/23June/bnb_ui.dart';
 import 'package:backend_project/air_Pollution.dart';
@@ -9,11 +10,14 @@ import 'package:backend_project/chechBox.dart';
 import 'package:backend_project/covid.dart';
 import 'package:backend_project/GestureD1.dart';
 import 'package:backend_project/dropDownButton.dart';
+import 'package:backend_project/dropdown_button2.dart';
 import 'package:backend_project/forcast.dart';
 
 import 'package:backend_project/form5.dart';
 import 'package:backend_project/inkWell.dart';
 import 'package:backend_project/login%20P.dart';
+
+import 'package:backend_project/pageview_builder.dart';
 
 import 'package:backend_project/progressBar.dart';
 import 'package:backend_project/register%20p.dart';
@@ -45,7 +49,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Backend Apps',
       theme: ThemeData.light(),
-      home: weather1(),
+      home: home(),
     );
   }
 }

@@ -27,20 +27,31 @@ class _dropdownState extends State<dropdown> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            DropdownButton(
-              value: dropdownvalue,
-              icon: const Icon(Icons.keyboard_arrow_down),
-              items: Items.map((String items) {
-                return DropdownMenuItem(
-                  value: items,
-                  child: Text(items),
-                );
-              }).toList(),
-              onChanged: (String? newValue) {
-                setState(() {
-                  dropdownvalue = newValue!;
-                });
-              },
+            Container(
+              height: 40,
+              width: 300,
+              padding: EdgeInsets.only(left: 5, right: 5),
+              decoration: BoxDecoration(
+                border: Border.all(color: Colors.black),
+                borderRadius: BorderRadius.circular(10),
+              ),
+              child: DropdownButton(
+                underline: Container(),
+                isExpanded: true,
+                value: dropdownvalue,
+                icon: const Icon(Icons.keyboard_arrow_down),
+                items: Items.map((String items) {
+                  return DropdownMenuItem(
+                    value: items,
+                    child: Text(items),
+                  );
+                }).toList(),
+                onChanged: (String? newValue) {
+                  setState(() {
+                    dropdownvalue = newValue!;
+                  });
+                },
+              ),
             )
           ],
         ),

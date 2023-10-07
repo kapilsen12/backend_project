@@ -1,6 +1,7 @@
 import 'package:backend_project/Class/21June/controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
 class form3 extends StatefulWidget {
   const form3({Key? key}) : super(key: key);
 
@@ -22,19 +23,26 @@ class _form3State extends State<form3> {
       body: Column(
         children: [
           TextField(
-            controller:emailCont,decoration: InputDecoration(
-            hintText: 'Inter your email',
-          ),
+            controller: emailCont,
+            decoration: InputDecoration(
+              hintText: 'Inter your email',
+            ),
           ),
           TextField(
-            controller: passwordCont,decoration: InputDecoration(
-            hintText: 'Inter your password',
+            controller: passwordCont,
+            decoration: InputDecoration(
+              hintText: 'Inter your password',
+            ),
           ),
+          ElevatedButton(
+              onPressed: () {
+                authenticationCont.isAuthenticated(
+                    emailCont.text, passwordCont.text);
+              },
+              child: Text('Submit')),
+          Obx(
+            () => Text(' ${authenticationCont.status.value}'),
           ),
-          ElevatedButton(onPressed: (){
-            authenticationCont.isAuthenticated(emailCont.text, passwordCont.text);
-          }, child: Text('Submit')),
-          Obx(() => Text(' ${authenticationCont.status.value}'), ),
         ],
       ),
     );

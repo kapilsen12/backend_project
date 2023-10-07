@@ -1,39 +1,28 @@
+import 'package:backend_project/BNB/Page1.dart';
+import 'package:backend_project/BNB/Page2.dart';
 import 'package:backend_project/Class/23June/bnb_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class bnb extends StatefulWidget {
-  const bnb({Key? key}) : super(key: key);
+class home extends StatefulWidget {
+  const home({super.key});
 
   @override
-  State<bnb> createState() => _bnbState();
+  State<home> createState() => _homeState();
 }
 
-class _bnbState extends State<bnb> {
+class _homeState extends State<home> {
   final bnbCont = Get.put(BNBController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('BNB Controller'),
+        title: Text('BNB'),
       ),
       body: Obx(
         () => IndexedStack(
           index: bnbCont.index.value,
-          children: const [
-            Center(
-              child: Text('Home'),
-            ),
-            Center(
-              child: Text('Search'),
-            ),
-            Center(
-              child: Text('Account'),
-            ),
-            Center(
-              child: Text('Setting'),
-            ),
-          ],
+          children: [page1(), page2()],
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
@@ -47,9 +36,6 @@ class _bnbState extends State<bnb> {
         items: const [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
           BottomNavigationBarItem(icon: Icon(Icons.search), label: 'Search'),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.account_circle), label: 'Account'),
-          BottomNavigationBarItem(icon: Icon(Icons.settings), label: 'setting')
         ],
       ),
     );
